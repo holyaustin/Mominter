@@ -7,7 +7,7 @@ import { jsx, Box } from 'theme-ui';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Player } from '@livepeer/react';
-import logo from '../../../public/images/logoonly.png';
+import logo from '../../../public/images/mominter_logo.png';
 import styles from '../../styles/Assets.module.css';
 
 

@@ -15,7 +15,7 @@ import ShareLink from "react-twitter-share-link";
 import Popup from 'reactjs-popup';
 //import 'reactjs-popup/dist/index.css';
 
-import blenderPoster from '../../public/images/logoonlyblue.png';
+import blenderPoster from '../../public/images/mominter_logo.png';
 import fileNFT from "../../artifacts/contracts/Genic.sol/FileNFT.json";
 import { fileShareAddress } from "../../config";
 

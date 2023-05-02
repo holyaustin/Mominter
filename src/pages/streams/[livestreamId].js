@@ -5,7 +5,7 @@ import theme from '../../theme';
 import SEO from '../../components/seo';
 import Layout from '../../components/layout2';
 import { useRouter } from 'next/router';
-import logo from '../../../public/images/logoonlyblue.png';
+import logo from '../../../public/images/mominter_logo.png';
 import { Player } from '@livepeer/react';
 import styles from '../../styles/Stream.module.css';
 
