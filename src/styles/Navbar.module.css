@@ -1,0 +1,36 @@
+
+.nav {
+  position: relative;
+  margin: 0 15%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+}
+  
+.nav a {
+margin-bottom: 20px;
+font-size: 20px;
+width: 150px;
+border: 1px white solid;
+border-radius: 5px;
+box-shadow: 2px 2px;
+}
+
+.nav a:hover {
+ margin-bottom: 20px;
+font-size: 20px;
+width: 150px;
+border: 1px white solid;
+border-radius: 5px;
+border: 1px black solid;
+color: white;
+  }

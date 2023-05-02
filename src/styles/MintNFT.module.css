@@ -1,0 +1,131 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  @apply
+  shadow-xl
+  m-6
+  p-5
+  rounded-md
+  border-solid
+  text-center
+  w-2/4
+}
+
+.title {
+  @apply 
+  my-10
+  leading-5
+  text-5xl
+  font-sans
+  text-blue-500
+}
+
+.link{
+  text-align: center;
+}
+
+.link a {
+  color: #44d8a7;
+  text-decoration: none;
+  margin-right: 3rem;
+}
+
+.link a:hover,
+.link a:focus,
+.link a:active {
+  text-decoration: underline;
+}
+
+.drop {
+  border: 2px dotted #245cd8;
+  border-radius: 5px;
+  padding: 1rem 1rem;
+  margin: 1rem 0.25rem;
+  align-items: center;
+}
+
+.drop:hover {
+  cursor: pointer;
+}
+
+.progress  {
+  text-align: center;
+  margin: 1rem 0;
+  color: #245cd8;
+}
+
+.progress p {
+  text-align: center;
+}
+
+.buttonBox {
+ margin-left: 3.5rem;
+}
+
+.button {
+margin-left: 1rem;
+padding: 0.25rem;
+background: #245cd8;
+border-radius: 5px;
+color: white;
+padding: 5px;
+}
+
+.connect {
+  padding:0.5rem 1rem;
+  margin: 1rem 3rem 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-center;
+}
+
+.buttonConnect{
+  padding: 0.5rem 1rem;
+  background: #44d8a7;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  text-overflow: clip;
+  margin-left: 2.5rem;
+}
+
+.link  {
+  color: #245cd8;
+}
+
+.link :hover  {
+  color: #245cd8;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}

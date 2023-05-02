@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://stremagenic.vercel.app</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/addfolder</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/analytics</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/explore</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/livestream</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/livestream/createStream</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/livestream/getSession</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/livestream/getSessions</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/livestream/getStream</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/livestream/getStreams</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.221Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/publishnews</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.222Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/streamlive</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.222Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/videoplayer</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.222Z</lastmod></url>
+<url><loc>https://stremagenic.vercel.app/watch</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-01-09T01:57:28.222Z</lastmod></url>
+</urlset>

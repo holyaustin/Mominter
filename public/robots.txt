@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://stremagenic.vercel.app
+
+# Sitemaps
+Sitemap: https://stremagenic.vercel.app/sitemap.xml

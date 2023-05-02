@@ -1,0 +1,114 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 28px; 
+  padding: 0px 10px;
+  margin: 50px
+}
+
+
+.title a {
+  color: #245cd8;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  @apply 
+  my-10
+  leading-5
+  text-5xl
+  font-sans
+  text-blue-500
+}
+
+.title,
+.description {
+  @apply
+  text-center
+}
+
+.description {
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ grid-gap: 5px;
+}
+
+.card {
+  @apply
+  shadow-xl
+  m-24
+  p-12
+  border-2
+  rounded-md
+  border-solid
+  text-center
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  @apply
+  text-blue-700
+  border-blue-700
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+
+.card p {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ready  {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color:#22c55e;
+}
+
+.failed  {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #ef4444;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
