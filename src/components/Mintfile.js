@@ -37,8 +37,8 @@ const MintFile = () => {
   };
 
   const uploadNFTContent = async (inputFile) => {
-    const { name } = formInput;
-    if (!name || !inputFile) return;
+    const { name, description } = formInput;
+    if (!name || !description || !inputFile) return;
     const nftStorage = new NFTStorage({ token: APIKEY, });
     try {
       console.log("Trying to upload file to ipfs");
@@ -46,7 +46,7 @@ const MintFile = () => {
       console.log("close to metadata");
       const metaData = await nftStorage.store({
         name,
-        description: name,
+        description,
         image: inputFile,
       });
       setMetaDataURl(metaData.url);
@@ -60,7 +60,7 @@ const MintFile = () => {
 
   const sendTxToBlockchain = async (metadata) => {
     try {
-      setTxStatus("Adding transaction to Polygon Mumbai..");
+      setTxStatus("Adding transaction to Blockchain");
       const web3Modal = new Web3Modal();
       const connection = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(connection);
@@ -87,7 +87,7 @@ const MintFile = () => {
     console.log("image ipfs path is", imgViewString);
     setImageView(imgViewString);
     setMetaDataURl(getIPFSGatewayURL(metaData.url));
-    setTxURL(`https://mumbai.polygonscan.com/tx/${mintNFTTx.hash}`);
+    setTxURL(`Check transaction on Filecoin Explorer`);
     setTxStatus("File addition was successfully!");
     console.log("File preview completed");
   };
@@ -107,7 +107,7 @@ const MintFile = () => {
     // mintReward();
 
     //5. navigate("/explore");
-    navigate.push('/dashboard');
+    navigate.push('/explore');
   };
 
   const getIPFSGatewayURL = (ipfsURL) => {
@@ -120,22 +120,28 @@ const MintFile = () => {
 
   return (
     <Box as="section"  sx={styles.section}>
-      <div className="bg-purple-100 text-4xl text-center text-black font-bold pt-10">
-        <h1> Upload a Video File</h1>
+      <div className="text-2xl text-center text-black font-bold pt-10">
+        <h1> Upload a Video Moment</h1>
       </div>
       <div className="flex justify-center bg-blue-100">
         <div className="w-1/2 flex flex-col pb-12 ">
         <input
-            placeholder="Give the file a name"
+            placeholder="Name your Moment"
             className="mt-5 border rounded p-4 text-xl"
             onChange={(e) => updateFormInput({ ...formInput, name: e.target.value })}
           />
           <br />
-
+          <textarea
+            placeholder="Brief description of Moment"
+            className="mt-5 border rounded p-4 text-xl"
+            onChange={(e) => updateFormInput({ ...formInput, description: e.target.value })}
+            rows={2}
+          />
+          <br />
           <div className="MintNFT text-black text-xl">
             <form>
               <h3>Select a File</h3>
-              <input type="file" onChange={handleFileUpload} className="text-black mt-2 border rounded  text-xl" />
+              <input type="file" onChange={handleFileUpload} className="text-black mt-2 border rounded  text-2xl" />
             </form>
             {txStatus && <p>{txStatus}</p>}
             
@@ -161,8 +167,8 @@ const MintFile = () => {
 
           </div>
 
-          <button type="button" onClick={(e) => mintNFTFile(e, uploadedFile)} className="font-bold mt-20 bg-purple-700 text-white text-2xl rounded p-4 shadow-lg">
-            Publish File
+          <button type="button" onClick={(e) => mintNFTFile(e, uploadedFile)} className="font-bold mt-20 bg-yellow-500 text-white text-2xl rounded p-4 shadow-lg">
+            Publish Moment
           </button>
         </div>
       </div>

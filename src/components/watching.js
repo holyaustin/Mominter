@@ -50,6 +50,12 @@ export default function Watching() {
     console.log("Counter executed")
   }, []);
 
+  const getIPFSGatewayURL = (ipfsURL) => {
+    const urlArray = ipfsURL.split("/");
+    const ipfsGateWayURL = `https://${urlArray[2]}.ipfs.nftstorage.link/${urlArray[3]}`;
+    return ipfsGateWayURL;
+  };
+  
   const getId = (props) => {
     console.log(props);
     return props;
@@ -62,17 +68,7 @@ export default function Watching() {
     alert("This feature is under development because we want to give you the best expereince");
   }
 
-  async function getENSName() {
-    const address = owners;
-    const RPC2 = "https://eth.llamarpc.com";
-    const provider = new ethers.providers.JsonRpcProvider(RPC2);
-    const ename = await provider.lookupAddress(address); 
-    console.log("ENS name is ", ename)
-    return ename;
-    
-  }
-
-  const rpcUrl = "https://matic-mumbai.chainstacklabs.com";
+  const rpcUrl = "https://filecoin-hyperspace.chainstacklabs.com/rpc/v1";
    // const rpcUrl = "localhost";
 
    const { query: vid } = router; 
@@ -81,7 +77,7 @@ export default function Watching() {
 
   async function loadVideo() {
     /* create a generic provider and query for items */
-    console.log("loading News for item", props.vid);
+    console.log("loading Moments for item", props.vid);
     const vid = props.vid;
     console.log("vid is ", vid);
 
@@ -104,14 +100,12 @@ export default function Watching() {
       console.log("inside data mapping");
       const tokenUri = await contract.tokenURI(i.tokenId);
       console.log("token Uri is ", tokenUri);
-      const httpUri = tokenUri;
+      const httpUri = getIPFSGatewayURL(tokenUri);
       console.log("Http Uri is ", httpUri);
-      const meta = await axios.get(tokenUri);
+      const meta = await axios.get(httpUri);
       
-      //getENSName();
-
       const count = (data2.toNumber())+1
-      console.log("News data fetched from contract");
+      console.log("Moment data fetched from contract");
       console.log("data2 value is ", data2);
       console.log("count value is ", count);
       const filename = i.fileName;
@@ -120,44 +114,23 @@ export default function Watching() {
       console.log("date created is ", created);
       const description = i.description;
       console.log("description is ", description);
-      const filesize = Math.round(((i.fileSize).toString() /1000000) * 100) / 100;
-      console.log("Filesize is ", filesize);
 
       const item = {
         tokenId: i.tokenId.toNumber(),
-        image: httpUri,
-        name: filename,
+        image: getIPFSGatewayURL(meta.data.image),
+        name: meta.data.name,
         created: created,
-        description: description,
-        size: filesize,
-        sharelink: httpUri,
+        description: meta.data.description,
+        sharelink: getIPFSGatewayURL(meta.data.image),
         owner: i.owner.toString(),
         view: count,
       };
       console.log("item returned is ", item);
       setOwners(item.owner);
-      // ethers.js automatically checks that the forward resolution matches.
-      //let ensAddress = item.owner;
-      //let NameLookup = await provider.lookupAddress(ensAddress);
-      //setEnsName(NameLookup);
-      // Calling conditions to send Milestone NFT from NFTPort
-      if (count == 1) {
-        mintViewMilestone();
-      };
-
-      if (count == 100) {
-        mintViewMilestone();
-      };
-
-      if (count == 1000) {
-        mintViewMilestone();
-      };
-
       return item;
     }));
     setNfts(items);
     setLoadingState("loaded");
-
   }
 
   async function loadCount() {
@@ -179,31 +152,11 @@ export default function Watching() {
       await mintNFTTx.wait();
       return mintNFTTx;
     } catch (error) {
-      setErrorMessage("Failed to send tx to Mumbai.");
+      setErrorMessage("Failed to send tx to Blockchain.");
       console.log(error);
     }
  
   };
-// NFTPort Function to Mint Milestone
-  async function mintViewMilestone() {
-    const options = {
-      method: 'POST',
-      url: 'https://api.nftport.xyz/v0/mints/easy/urls',
-      headers: { 'Content-Type': 'application/json', Authorization: '768bfb7a-087d-4ee1-8bb0-5498cc36ad46' },
-      data: {
-        chain: 'polygon',
-        name: 'streamagenic',
-        description: 'NFT for your video getting views. Congratulations!',
-        file_url: 'https://bafkreidugtjoxts62zsi32riqsjlpt643vnqxtaljo4tba2n2dlqvb2jyq.ipfs.w3s.link/',
-        mint_to_address: {owners},
-      },
-    };
-    axios.request(options).then((response) => {
-      console.log(response.data);
-    }).catch((error) => {
-      console.error(error);
-    });
-  }
 
   const PosterImage = () => {
     return (
@@ -230,7 +183,7 @@ export default function Watching() {
     <Box as="section"  sx={styles.section} className="bg-blue-800 ">
     <>
     <div className=" text-2xl text-center text-white font-bold ">
-        <h1>News Details</h1>
+        <h1>Watch Moment</h1>
       </div>
       <div className="grid grid-cols-3 grid-rows-2 col-gap-2 row-gap-5 mx-20 my-5">
 
@@ -239,27 +192,28 @@ export default function Watching() {
   <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-4 pt-4">
 {nfts.map((nft, i) => (
     <div key={i} className="shadow rounded-xl overflow-hidden min-w-full " style={responsiveIframe}>
-
+{/**
 <Player
       title={nft.name}
       src={nft.sharelink}
       //playbackId="6d7el73r1y12chxr"
-      autoUrlUpload={{ fallback: true, ipfsGateway: 'https://w3s.link' }}
+      autoUrlUpload={{ fallback: false, ipfsGateway: 'https://w3s.link' }}
       poster={<PosterImage />}
       showPipButton
       objectFit="cover"
       priority
 
     />
-
-      {/**
-      <iframe
-        title="video"
-        style={responsiveIframe}
-        src={`${nft.image}#toolbar=0`}
-        className="py-3 object-cover h-full"
-      />
  */}
+      
+      <iframe
+        title={nft.name}
+        style={responsiveIframe}
+        src={`${nft.sharelink}#toolbar=0`}
+        className="py-3 object-cover h-full"
+        objectFit="cover"
+      />
+ 
     </div>
   ))
 }
@@ -284,15 +238,11 @@ export default function Watching() {
       </div>
       <br/>
       <div className="p-1">
-        <p style={{ height: "40px" }} className="text-xl font-semibold">Video Name : {nft.name}</p>
+        <p style={{ height: "40px" }} className="text-xl font-semibold">Moment Title: {nft.name}</p>
       </div>
       <br/>
       <div className="p-1">
         <p style={{ height: "40px" }} className="text-xl font-semibold">Description: {nft.description}</p>
-      </div>
-      <br/>
-      <div className="p-1">
-        <p style={{ height: "20px" }} className="text-xl font-semibold">Size : {nft.size} {' '} MB</p>
       </div>
       <br/>
       <div className="p-1">
@@ -331,7 +281,7 @@ export default function Watching() {
                   </button>
                 </div>
                 <div className="p-4">
-                <ShareLink link="https://streamagenic.vercel.app/explore" text="News on Demand from eye witness all around the globe!" hashtags="blockchaintechnology streamagenic Livepeer holyaustin IPFS">
+                <ShareLink link="https://mominter.vercel.app/explore" text="News on Demand from eye witness all around the globe!" hashtags="blockchaintechnology Mominter huddle01 holyaustin IPFS Lighthouse">
               {(link) => (
                   <button type="button" className="w-full bg-blue-800 text-white font-bold py-2 px-12 border-b-4 border-blue-200 hover:border-blue-500 rounded-full">                   
                   <a href={link} target="_blank" rel="noreferrer">Share on Twitter</a></button>
@@ -343,7 +293,7 @@ export default function Watching() {
                   <button type="button" className="w-full bg-blue-800 text-white font-bold py-2 px-12 border-b-4 border-blue-200 hover:border-blue-500 rounded-full">
                     <a
                       className="social-icon-link github"
-                      href="https://streamagenic-meeting.vercel.app/"
+                      href=""
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="chat"

@@ -74,10 +74,10 @@ export default function Header() {
           <a>Home</a>
           </Link>
           <Link href="/explore">
-          <a>News-On-Demand</a>
+          <a>Video-On-Demand</a>
           </Link>
-          <Link href="/publishnews">
-          <a>Publish-News</a>
+          <Link href="/publish">
+          <a>Publish-Moment</a>
           </Link>
           <Link href="/streamlive">
           <a>Stream-Live </a>

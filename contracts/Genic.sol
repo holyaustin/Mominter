@@ -24,9 +24,6 @@ contract FileNFT is ERC721URIStorage {
       uint256 tokenId;
       address owner;
       address storageDrive;
-      string  fileName; 
-      string  description; 
-      uint256 fileSize; 
       uint256 dateCreated;
       bool shared;
     }
@@ -41,9 +38,6 @@ contract FileNFT is ERC721URIStorage {
       uint256 indexed tokenId,
       address owner,
       address storageDrive,
-      string fileName, 
-      string mdescription, 
-      uint256 fileSize,
       uint256 dateCreated,
       bool shared
     );
@@ -61,33 +55,27 @@ contract FileNFT is ERC721URIStorage {
         address account
     );
 
-    constructor() ERC721("StreamaGenic", "GENIC") {
+    constructor() ERC721("Mominter", "Mominter") {
     owner = payable(msg.sender);
-      monthly_value = 100000;
     }
 
-
      /* Mints a File*/
-    function createFile(string memory tokenURI, string memory fileName, string memory description, uint256 fileSize ) public payable returns (uint) {
+    function createFile(string memory tokenURI ) public payable returns (uint) {
       _tokenIds.increment();
       uint256 newTokenId = _tokenIds.current();
       
       _mint(msg.sender, newTokenId);
       _setTokenURI(newTokenId, tokenURI);
-      createStorageItem(newTokenId, fileName, description, fileSize);
+      createStorageItem(newTokenId);
       return newTokenId;
     }
 
     function createStorageItem(
-      uint256 tokenId, string memory fileName, string memory description, uint256 fileSize
-    ) private {
+      uint256 tokenId ) private {
       idToStorageItem[tokenId] =  StorageItem(
         tokenId,
         msg.sender,
         address(this),
-        fileName, 
-        description, 
-        fileSize, 
         block.timestamp,
         false
       );
@@ -97,9 +85,6 @@ contract FileNFT is ERC721URIStorage {
         tokenId,
         msg.sender,
         address(this),
-        fileName, 
-        description, 
-        fileSize, 
         block.timestamp,
         false
       );

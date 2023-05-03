@@ -28,7 +28,12 @@ export default function ViewFiles() {
   useEffect(() => {
     loadfileNFT();
   }, []);
-
+  const getIPFSGatewayURL = (ipfsURL) => {
+    const urlArray = ipfsURL.split("/");
+    const ipfsGateWayURL = `https://${urlArray[2]}.ipfs.nftstorage.link/${urlArray[3]}`;
+    return ipfsGateWayURL;
+  };
+  
   const rpcUrl = "https://filecoin-hyperspace.chainstacklabs.com/rpc/v1";
    // const rpcUrl = "localhost";
 
@@ -49,9 +54,9 @@ export default function ViewFiles() {
     const items = await Promise.all(data.map(async i => {
       const tokenUri = await contract.tokenURI(i.tokenId);
       console.log("token Uri is ", tokenUri);
-      const httpUri = tokenUri;
+      const httpUri = getIPFSGatewayURL(tokenUri);
       console.log("Http Uri is ", httpUri);
-      const meta = await axios.get(tokenUri);
+      const meta = await axios.get(httpUri);
 
       const filename = i.fileName;
       console.log("Filename is ", filename);
@@ -59,17 +64,14 @@ export default function ViewFiles() {
       console.log("date created is ", created);
       const description = i.description;
       console.log("description is ", description);
-      const filesize = Math.round(((i.fileSize).toString() /1000000) * 100) / 100;
-      console.log("Filesize is ", filesize);
 
       const item = {
         tokenId: i.tokenId.toNumber(),
-        image: httpUri,
-        name: filename,
-        created: created,
-        description: description,
-        size: filesize,
-        sharelink: httpUri,
+        image: getIPFSGatewayURL(meta.data.image),
+        name: meta.data.name,
+        description: meta.data.description,
+        sharelink: getIPFSGatewayURL(meta.data.image),
+
       };
       console.log("item returned is ", item);
       return item;
@@ -121,7 +123,7 @@ export default function ViewFiles() {
   return (
     <Box as="section"  sx={styles.section}>
       <div className="bg-blue-100 text-xl text-center text-black font-bold pt-5 pb-4">
-        <h1> News on Demand Gallery</h1>
+        <h1> Video on Demand Gallery</h1>
       </div>
     <div className="flex justify-center bg-blue-100 mb-12">
 
@@ -139,22 +141,8 @@ export default function ViewFiles() {
                 src={`${nft.image}#toolbar=0&embedded=true`}
                 className="py-3 object-cover h-500"
               />
-          
-{/** 
-<Player
-      title="Agent 327: Operation Barbershop"
-      playbackId="6d7el73r1y12chxr"
-      poster={<PosterImage />}
-      showPipButton
-      objectFit="cover"
-      priority
-    />
-*/}
-
               <div className="p-1">
                 <p style={{ height: "45px", overflow: 'hidden' }} className="text-xl text-blue-800 font-semibold leading-none"> {nft.name}      </p>
-                <p className="text-xl font-bold text-black pt-2">Size : {nft.size}  MB </p>
-                <p className="text-xl font-bold text-black pt-2">Published : {nft.created} </p>
                 <div style={{ height: '100px', overflow: 'hidden' }}>
                     <p className="text-gray-700 pt-2">Description : {nft.description} </p>
                 </div>
@@ -162,7 +150,7 @@ export default function ViewFiles() {
               </div>
 
               <div className="p-2 bg-black">
-                <button type="button" className="mt-1 w-full bg-blue-500 text-white font-bold py-2 px-12 rounded" onClick={() => NewsDetails(nft)}>Watch News</button>
+                <button type="button" className="mt-1 w-full bg-blue-500 text-white font-bold py-2 px-12 rounded" onClick={() => NewsDetails(nft)}>Watch Video</button>
               </div>
               
               {/** onClick={() => share(nft)} */}

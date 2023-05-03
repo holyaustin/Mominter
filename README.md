@@ -31,9 +31,9 @@ The smart contract uses ERC-721 specification to hold metadata URI, ethers.js wa
 Live Dapp on Vercel: - <https://mominter.vercel.app/>
 
 Deployed to Polygon Chain:
-  Filecoin (Hyperspace) Testnet deployed Address = "0xa199AB87E3787C67f5286d78f527B1426f022eeD"
+  Filecoin (Hyperspace) Testnet deployed Address = "0x4e75D8F85ED40aA3f73fB751b1Dfa07DEFe09C94"
 
-  <http://mumbai.polyscan.com/#/contract/0x92b3556042052c12c962bEf9aCcad837405130a8>
+  <https://hyperspace.filfox.info/en/address/0x4e75D8F85ED40aA3f73fB751b1Dfa07DEFe09C94>
 
  Youtube video link: <https://youtu.be/kZvxCGMPci8>
 

@@ -5,11 +5,11 @@ export default [
   },
   {
     path: '/explore',
-    label: 'News-On-Demand',
+    label: 'Video-On-Demand',
   },
   {
     path: '/publishnews',
-    label: 'Publish-News',
+    label: 'Publish-Moments',
   },
   {
     path: '/streamlive',
@@ -19,10 +19,5 @@ export default [
     path: '/videoplayer',
     label: 'Video-Player',
   },
-  {
-    path: 'https://web3chat-kezayya.vercel.app/',
-    label: 'Chat',
-  },
-
 
 ];
