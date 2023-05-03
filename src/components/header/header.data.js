@@ -15,7 +15,7 @@ export default [
     path: 'faq',
     label: 'Faq',
   },
-  {/**
+  /**{
   {
     path: 'pricing',
     label: 'Pricing',
@@ -28,5 +28,5 @@ export default [
     path: 'blog',
     label: 'Blog',
   },
- */}
+} */
 ];

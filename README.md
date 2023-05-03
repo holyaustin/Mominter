@@ -6,25 +6,23 @@ A DApp to allow the user(host) to mint moments as NFT using the contracts deploy
 
 ## Introduction
 
-StremaGenic is a web3 video project with the aim of helping creators publish video news files and share them easily while owning their content and making money from it. This project intends to build a web3 news for everyone around the globe. Users that are Eye witness to events, captures them and publish on the new platform.
-News / Contents can also be streamed live through Livepeers streams. It uses the open zeppelin ERC721 standard, Files are store to IPFS / Filecoin using W3UI and  file metadata URI stored on Polygon Mumbai testnet which is an Ethereum scaling and POS. Upon retrieval, video is access and transcoded with livepeer.js.
-Polygon Blockchain was the best choice for deployment to its speed and to reduce the cost of transactions while interacting with the blockchain. Lit was used for encryption, ENS for reverse name lookup, Huddle for conference meeting and XMTP for chat and interaction. NFTPort was uded to send Milestone rewards when a video hit certain number of views.
+Mominter is a web3 video project with the aim of helping creators publish exciting video Moments as NFTs  and share them easily while owning their content and possibly making money from it. This project intends to build a web3 Momnet Gallery for everyone around the globe. Users can use the Huddle01 video streaming to record presentation and mint them while storing the Video files on IPFS and Metadata on Filecoin Blockchain. 
+Contents can also be streamed live through Huddle01 Live Presentation SDK streams. We use the open zeppelin ERC721 standard, Files are store to IPFS / Filecoin using NFT.Storage and  file metadata URI stored on Filecoin Hyperspace Testnet which is FEVM . Upon retrieval, . Lighthouse was used to used for encryption and most important, the Access control of Light hoise was used to grant access to member with the membership NFT, Huddle for conference meeting and XMTP for chat and interaction.
 
 ## Web 3.0 technologies Used
 
 Frontend: NextJS, postcss, tailwindcss, Theme
 
-Web3 technologies: IPFS/filecoin (W3UI), Livepeer (livepeer.js), Web3Modal,  NFT Port, ENS, Lit Protocol, Filecoin (Hyperspace), Graph, LightHouse, Huddle01  
+Web3 technologies: LightHouse, Huddle01,  IPFS/filecoin, Livepeer (livepeer.js), Web3Modal,  Filecoin (Hyperspace), 
 Backend: Solidity, Node.js
 
 Blockchain deployed to:  Filecoin (Hyperspace) Testnet
 
 ## Description
 
-This project was made using several technologies. The front-end was designed using a server-side-rendering javascript tech known as NextJS. the latest version of Next was used because of how fast it was to build the project.  IPFS / Filecoin's W3UI from Web3.Storage was used to store user's video on their decentralized storage. videos of various news can be viewed on demand. They can share these Videos to anyone through a sharing mechansism that is easy to copy out the sharing IPFS URL.
-XMTP is used for wallet to wallet messaging using the XMTP SDK. Huddle01 was used for conference meeting.
+This project was made using several technologies. The front-end was designed using a server-side-rendering javascript tech known as NextJS. the latest version of Next was used because of how fast it was to build the project.  IPFS / Filecoin's NFT.Storage was used to store user's video on their decentralized storage. videos of various news can be viewed on demand. They can share these Videos to anyone through a sharing mechansism that is easy to copy out the sharing IPFS URL. Huddle01 for video streaming ND CONFERENCE MEETING. Huddle01 was used for conference meeting.
 
-The smart contract uses ERC-721 specification to hold metadata URI, ethers.js was used to interact with the smart contract. The contract was deployed to Mumbai blockchain. The entire project demo was hosted to Vercel.
+The smart contract uses ERC-721 specification to hold metadata URI, ethers.js was used to interact with the smart contract. The contract was deployed to Filecoin Hyperspace blockchain. The entire project demo was hosted to Vercel.
 
 ## Live DApp hosted on
 
