@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://stremagenic.vercel.app',
+  siteUrl: 'https://momimter.vercel.app',
   generateRobotsTxt: true,
   // optional
   // robotsTxtOptions: {

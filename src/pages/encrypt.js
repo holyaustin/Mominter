@@ -3,17 +3,18 @@ import { ThemeProvider } from 'theme-ui';
 import theme from '../theme';
 import SEO from '../components/seo';
 import Layout from '../components/layout2';
-import Stream from './livestream/index.tsx';
+import Access from '../components/accesscontrol2';
 
 export default function Dashboard() {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
         <SEO
-          title="Live Stream"
-          description="Share file"
+          title="Add new file"
+          description="add a new file"
         />
-        <Stream/>
+        <Access/>
+
       </Layout>
     </ThemeProvider>
   );

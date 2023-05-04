@@ -79,12 +79,16 @@ export default function Header() {
           <Link href="/publish">
           <a>Publish-Moment</a>
           </Link>
-          <Link href="/streamlive">
-          <a>Stream-Live </a>
+          <Link href="/encrypt">
+          <a> Encrypt-Upload</a>
+          </Link>
+          <Link href="/Videoconference">
+          <a>Video-Conference </a>
           </Link>
           <Link href="/videoplayer">
           <a> Video-Player</a>
           </Link>
+
 
           
 {/**

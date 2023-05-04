@@ -12,12 +12,17 @@ export default [
     label: 'Publish-Moments',
   },
   {
-    path: '/streamlive',
-    label: 'Stream-Live',
+    path: '/encrypt',
+    label: 'Encrypt-Upload',
+  },
+  {
+    path: '/Videoconference.js',
+    label: 'Video-Conference',
   },
   {
     path: '/videoplayer',
     label: 'Video-Player',
   },
+
 
 ];

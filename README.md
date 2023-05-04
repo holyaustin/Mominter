@@ -80,3 +80,7 @@ stay connected on twitter @holyaustin
 https://live-par-1-abr-cdn.livepush.io/live_abr_cdn/emaIqCGoZw-6/index.m3u8
 
 https://hyperspace.filfox.info/en/address/0xa6d6f4556b022c0c7051d62e071c0acece5a1228
+
+LightHouse API - 1eceb394-fc75-43cf-83b6-546c9c13da57
+
+Huddle01 - eee33ed8308ea7f4814202f6fee8c936c80d2f9f03d480b069f13974fe349e21
